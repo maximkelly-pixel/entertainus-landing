@@ -5,111 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ENTERTAIN / US — Letter</title>
 
-  <!-- Space Mono from Google Fonts -->
+  <!-- Space Mono -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Page baseline to mimic a clean PDF on white */
-    :root {
-      --ink: #111;           /* text color (near-black for print feel) */
-      --paper: #fff;         /* page background */
-      --gutter: 40px;        /* outer page padding */
-      --column: 620px;       /* document column width similar to PDF */
-      --leading: 1.55;       /* line height tuned for monospace */
-      --small: 0.95rem;      /* caption/body small */
-      --body: 1rem;          /* main body size */
-      --masthead: 2.4rem;    /* ENTERTAIN/US size */
-      --title: 0.95rem;      /* uppercase title */
-      --space: 18px;         /* vertical rhythm unit */
+    :root{
+      /* Tweak these to match the PDF’s exact tone */
+      --ink: #0f1113;          /* near-black text */
+      --tone: #f1f0f6;         /* non-white paper tone */
+      --rule: #0f1113;         /* rule color (same as text) */
+      --col: 620px;            /* document width close to PDF */
+      --pad: 44px;             /* outer padding */
+      --lead: 1.55;            /* monospace line-height */
+      --body: 1rem;            /* body size */
+      --title: 0.95rem;        /* uppercase title size */
+      --gap: 14px;             /* vertical rhythm */
+      --rule-thick: 2px;       /* rule thickness */
+      --rule-offset: 8px;      /* spacing around rules */
     }
 
-    html, body {
-      height: 100%;
-      background: var(--paper);
-    }
-    body {
+    html, body { height: 100%; }
+    body{
       margin: 0;
+      background: var(--tone);
       color: var(--ink);
       font-family: "Space Mono", monospace;
+      line-height: var(--lead);
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding: var(--gutter);
+      padding: var(--pad);
     }
-    .doc {
+
+    .doc{
       width: 100%;
-      max-width: var(--column);
-      line-height: var(--leading);
+      max-width: var(--col);
     }
 
-    /* Masthead: two stacked lines to read as ENTERTAIN / US */
-    .masthead {
-      margin-bottom: calc(var(--space) * 2);
-      letter-spacing: 0.04em;
+    /* Top header row: US ———— ENTERTAIN */
+    .hdr{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: calc(var(--gap) * 1.8);
     }
-    .masthead .line {
-      display: block;
+    .hdr .us{
       font-weight: 700;
-      font-size: var(--masthead);
       text-transform: uppercase;
+      white-space: nowrap;
+      letter-spacing: 0.06em;
     }
-    /* Arrange order to match PDF’s stacked appearance:
-       First line: US, second line: ENTERTAIN */
-    .masthead .line.us {
-      margin-bottom: 6px;
+    .hdr .rule{
+      flex: 1 1 auto;
+      height: 0;
+      border-bottom: var(--rule-thick) solid var(--rule);
+      transform: translateY(1px); /* optical baseline tweak */
     }
-    .masthead .line.entertain {
-      /* If the PDF shows different alignment, switch text-align here */
-    }
-
-    /* Uppercase document title line */
-    .doc-title {
-      font-size: var(--title);
-      text-transform: uppercase;
+    .hdr .entertain{
       font-weight: 700;
-      margin: 0 0 calc(var(--space) * 1.25) 0;
+      text-transform: uppercase;
+      white-space: nowrap;
       letter-spacing: 0.06em;
     }
 
-    /* Body text blocks (short paragraphs like a PDF letter) */
-    p {
-      font-size: var(--body);
-      margin: 0 0 var(--space) 0;
+    .title{
+      font-size: var(--title);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin: 0 0 calc(var(--gap) * 1.2) 0;
     }
 
-    /* Footer contact lines spaced like a PDF */
-    .footer {
-      margin-top: calc(var(--space) * 2);
-      font-size: var(--small);
+    p{
+      font-size: var(--body);
+      margin: 0 0 var(--gap) 0;
     }
-    .footer a {
+
+    /* Bottom rule and footer */
+    .bottom-rule{
+      margin-top: calc(var(--gap) * 1.8);
+      border-bottom: var(--rule-thick) solid var(--rule);
+      height: 0;
+      width: 100%;
+    }
+    .footer{
+      margin-top: var(--rule-offset);
+      font-size: 0.95rem;
+    }
+    .footer a{
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid transparent;
     }
-    .footer a:hover {
+    .footer a:hover{
       border-bottom-color: var(--ink);
     }
 
-    /* Optional: print-friendly margins */
-    @media print {
-      body { padding: 24mm; }
-      .doc { max-width: 150mm; }
+    @media (max-width: 720px){
+      body{ padding: 28px; }
+      .hdr{ gap: 10px; }
     }
   </style>
 </head>
 <body>
   <main class="doc">
-    <!-- Stacked masthead to read as ENTERTAIN / US, per PDF -->
-    <div class="masthead">
-      <span class="line us">US</span>
-      <span class="line entertain">ENTERTAIN</span>
-    </div>
+    <!-- Header row with dynamic line -->
+    <header class="hdr">
+      <div class="us">US</div>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="entertain">ENTERTAIN</div>
+    </header>
 
-    <!-- Uppercase title line -->
-    <h2 class="doc-title">Sabbatical Leave Confirmation Letter</h2>
+    <h2 class="title">Sabbatical Leave Confirmation Letter</h2>
 
-    <!-- Body text paragraphs (edit as needed) -->
     <p><strong>To Whom It May Concern:</strong></p>
 
     <p>This letter confirms that Mr. Maxim Kelly has been granted paid sabbatical leave for one (1) year, from September 15, 2025, to September 15, 2026.</p>
@@ -118,13 +126,14 @@
 
     <p>Mr. Kelly maintains his permanent residence outside Barcelona and will return upon completion of his sabbatical.</p>
 
-    <p>Should additional documentation be required, please contact our office.</p>
+    <p>Should you require additional documentation, please contact our office.</p>
 
-    <!-- Footer contact -->
-    <div class="footer">
+    <div class="bottom-rule" aria-hidden="true"></div>
+
+    <footer class="footer">
       <div>hello@entertainus.lol</div>
       <div><a href="https://www.entertainus.lol" target="_blank" rel="noopener">www.entertainus.lol</a></div>
-    </div>
+    </footer>
   </main>
 </body>
 </html>
