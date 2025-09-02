@@ -18,8 +18,9 @@
       --body: 1rem;         /* body size */
       --title: 0.95rem;     /* uppercase title size */
       --gap: 16px;          /* vertical rhythm */
-      --rule-thick: 2px;    /* rule thickness */
+      --rule-thick: 1px;    /* thinner rule as requested */
       --hdr-gap: 16px;      /* header spacing between items */
+      --hdr-size: 1.6rem;   /* larger US / ENTERTAIN size */
     }
 
     html, body { height: 100%; }
@@ -33,6 +34,7 @@
       align-items: flex-start;
       justify-content: center;
       padding: var(--pad);
+      font-weight: 400; /* ensure unbolded baseline */
     }
 
     .doc{
@@ -49,24 +51,26 @@
     }
     .hdr .us,
     .hdr .entertain{
-      font-weight: 700;
       text-transform: uppercase;
       white-space: nowrap;
       letter-spacing: 0.06em;
       color: var(--ink);
+      font-weight: 400;     /* unbold */
+      font-size: var(--hdr-size); /* larger header text */
+      line-height: 1.2;
     }
     .hdr .rule{
       flex: 1 1 auto;
       height: 0;
       border-bottom: var(--rule-thick) solid var(--ink);
-      transform: translateY(1px); /* optical baseline tweak */
+      transform: translateY(0.5px); /* subtle optical tweak */
     }
 
-    /* Title line (uppercase) */
+    /* Title line (uppercase, unbold) */
     .title{
       font-size: var(--title);
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 400;     /* unbold */
       letter-spacing: 0.06em;
       margin: 0 0 calc(var(--gap) * 1.25) 0;
       color: var(--ink);
@@ -77,6 +81,7 @@
       font-size: var(--body);
       margin: 0 0 var(--gap) 0;
       color: var(--ink);
+      font-weight: 400;     /* unbold */
     }
 
     /* Bottom rule and footer */
@@ -90,6 +95,7 @@
       margin-top: 10px;
       font-size: 0.95rem;
       color: var(--ink);
+      font-weight: 400;     /* unbold */
     }
     .footer a{
       color: var(--ink);
@@ -103,6 +109,7 @@
     @media (max-width: 720px){
       body{ padding: 28px; }
       .hdr{ gap: 12px; }
+      :root{ --hdr-size: 1.4rem; } /* slightly smaller on mobile */
     }
   </style>
 </head>
@@ -117,7 +124,7 @@
 
     <h2 class="title">Coming Soon</h2>
 
-    <!-- UK spelling and your copy -->
+    <!-- UK spelling copy (no bold anywhere) -->
     <p>Entertain Us is a London-based production company specialising in creating compelling visual narratives for brands, agencies, and creative partners across film, digital content, and experiential media.</p>
 
     <p>We collaborate closely with our clients to bring their vision to life through innovative storytelling and cutting‑edge production techniques, crafting distinctive stories that captivate audiences and drive meaningful engagement.</p>
@@ -128,7 +135,7 @@
 
     <div class="bottom-rule" aria-hidden="true"></div>
 
-    <!-- Footer contact (email link only, URL as plain text) -->
+    <!-- Footer contact: email link only -->
     <footer class="footer">
       <div><a href="mailto:hello@entertainus.lol">hello@entertainus.lol</a></div>
       <div>www.entertainus.lol</div>
