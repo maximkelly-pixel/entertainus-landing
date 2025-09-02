@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ENTERTAIN / US — Letter</title>
+  <title>ENTERTAIN / US — Coming Soon</title>
 
   <!-- Space Mono -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Tweak these to match the PDF’s exact tone */
-      --ink: #0f1113;          /* near-black text */
-      --tone: #f1f0f6;         /* non-white paper tone */
-      --rule: #0f1113;         /* rule color (same as text) */
-      --col: 620px;            /* document width close to PDF */
-      --pad: 44px;             /* outer padding */
-      --lead: 1.55;            /* monospace line-height */
-      --body: 1rem;            /* body size */
-      --title: 0.95rem;        /* uppercase title size */
-      --gap: 14px;             /* vertical rhythm */
-      --rule-thick: 2px;       /* rule thickness */
-      --rule-offset: 8px;      /* spacing around rules */
+      --ink: #000;          /* pure black text and rules */
+      --paper: #fff;        /* white background */
+      --col: 620px;         /* document width similar to PDF */
+      --pad: 44px;          /* outer page padding */
+      --lead: 1.55;         /* line height tuned for monospace */
+      --body: 1rem;         /* body size */
+      --title: 0.95rem;     /* uppercase title size */
+      --gap: 16px;          /* vertical rhythm */
+      --rule-thick: 2px;    /* rule thickness */
+      --hdr-gap: 16px;      /* header spacing between items */
     }
 
     html, body { height: 100%; }
     body{
       margin: 0;
-      background: var(--tone);
+      background: var(--paper);
       color: var(--ink);
       font-family: "Space Mono", monospace;
       line-height: var(--lead);
@@ -42,55 +40,56 @@
       max-width: var(--col);
     }
 
-    /* Top header row: US ———— ENTERTAIN */
+    /* Header row: US ———— ENTERTAIN */
     .hdr{
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: calc(var(--gap) * 1.8);
+      gap: var(--hdr-gap);
+      margin-bottom: calc(var(--gap) * 1.75);
     }
-    .hdr .us{
-      font-weight: 700;
-      text-transform: uppercase;
-      white-space: nowrap;
-      letter-spacing: 0.06em;
-    }
-    .hdr .rule{
-      flex: 1 1 auto;
-      height: 0;
-      border-bottom: var(--rule-thick) solid var(--rule);
-      transform: translateY(1px); /* optical baseline tweak */
-    }
+    .hdr .us,
     .hdr .entertain{
       font-weight: 700;
       text-transform: uppercase;
       white-space: nowrap;
       letter-spacing: 0.06em;
+      color: var(--ink);
+    }
+    .hdr .rule{
+      flex: 1 1 auto;
+      height: 0;
+      border-bottom: var(--rule-thick) solid var(--ink);
+      transform: translateY(1px); /* optical baseline tweak */
     }
 
+    /* Title line (uppercase) */
     .title{
       font-size: var(--title);
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 0.06em;
-      margin: 0 0 calc(var(--gap) * 1.2) 0;
+      margin: 0 0 calc(var(--gap) * 1.25) 0;
+      color: var(--ink);
     }
 
+    /* Body copy */
     p{
       font-size: var(--body);
       margin: 0 0 var(--gap) 0;
+      color: var(--ink);
     }
 
     /* Bottom rule and footer */
     .bottom-rule{
-      margin-top: calc(var(--gap) * 1.8);
-      border-bottom: var(--rule-thick) solid var(--rule);
+      margin-top: calc(var(--gap) * 1.75);
+      border-bottom: var(--rule-thick) solid var(--ink);
       height: 0;
       width: 100%;
     }
     .footer{
-      margin-top: var(--rule-offset);
+      margin-top: 10px;
       font-size: 0.95rem;
+      color: var(--ink);
     }
     .footer a{
       color: var(--ink);
@@ -103,7 +102,7 @@
 
     @media (max-width: 720px){
       body{ padding: 28px; }
-      .hdr{ gap: 10px; }
+      .hdr{ gap: 12px; }
     }
   </style>
 </head>
@@ -116,20 +115,20 @@
       <div class="entertain">ENTERTAIN</div>
     </header>
 
-    <h2 class="title">Sabbatical Leave Confirmation Letter</h2>
+    <h2 class="title">Coming Soon</h2>
 
-    <p><strong>To Whom It May Concern:</strong></p>
+    <!-- Provided copy -->
+    <p>Entertain Us is a London-based production company specializing in creating compelling visual narratives for brands, agencies, and creative partners across film, digital content, and experiential media.</p>
 
-    <p>This letter confirms that Mr. Maxim Kelly has been granted paid sabbatical leave for one (1) year, from September 15, 2025, to September 15, 2026.</p>
+    <p>We collaborate closely with our clients to bring their vision to life through innovative storytelling and cutting-edge production techniques, crafting distinctive stories that captivate audiences and drive meaningful engagement.</p>
 
-    <p>During this sabbatical, Mr. Kelly will be temporarily residing in Barcelona to pursue creative projects, professional development, and family-related activities that require his presence in the city during this period.</p>
+    <p>Our website is currently being reimagined and will launch soon with exciting new features and portfolio showcases.</p>
 
-    <p>Mr. Kelly maintains his permanent residence outside Barcelona and will return upon completion of his sabbatical.</p>
-
-    <p>Should you require additional documentation, please contact our office.</p>
+    <p>Should you require additional information, please contact our office.</p>
 
     <div class="bottom-rule" aria-hidden="true"></div>
 
+    <!-- Footer contact (same as letter) -->
     <footer class="footer">
       <div>hello@entertainus.lol</div>
       <div><a href="https://www.entertainus.lol" target="_blank" rel="noopener">www.entertainus.lol</a></div>
